@@ -26,4 +26,7 @@ Expect to see:
 - Try to instantiate your gem’s client.  
 `client_fitbit = ::Kitman::Integrations::Fitbit.new`
 
+- Remove volume when done.   
+`bundle exec kitman lde volume remove fenway --name gem-name`
+
 More info [here](https://github.com/KitmanLabs/kitman/blob/1-0-stable/docs/modules/lde.md).
