@@ -26,7 +26,8 @@ Expect to see:
 - Try to instantiate your gem’s client.  
 `client_fitbit = ::Kitman::Integrations::Fitbit.new`
 
-Note: if there are required files, make sure the path matches the one in the /opt/ folder inside the container, or else the rails console won't find the required files that the client might need to run and throw a NameError. To troubleshoot this, try and load the file e.g. `load '/opt/petfinder/lib/petfinder/client.rb'` and then instantiate the client.
+Note: if there are required files, make sure to use require_relative or else the rails console won't find the required files that the client might need to run and throw a NameError. To troubleshoot this, try and load the file e.g. `load '/opt/petfinder/lib/petfinder/client.rb'` and then instantiate the client. So instead of using `require('./lib/kitman/zonein/constants'`, give preference to `require_relative 'constants'`.
+
 
 - Remove volume when done.   
 `bundle exec kitman lde volume remove fenway --name gem-name`
