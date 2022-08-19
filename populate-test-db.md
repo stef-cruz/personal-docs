@@ -4,9 +4,11 @@ To be able to run specs in the container you need to populate or update the inju
 
 `docker exec -it kitman-lde-medinah /bin/bash`
 
-- Go to file `spec/rails_helper.rb` and uncomment line 104:   
+- In medinah, go to file `spec/rails_helper.rb`and uncomment line 104:   
 
 `ActiveRecord::Migration.maintain_test_schema!`
+
+- If you are adding a new table, update the schema in medinah.
 
 - Run one of the specs in the container:   
 
