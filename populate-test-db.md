@@ -1,6 +1,6 @@
 To be able to run specs in the container you need to populate or update the injury_profiler_test in case there are new tables in the schema.
 
-- To do that, connect to the medinah console:   
+- To do that, connect to the medinah container:   
 
 `docker exec -it kitman-lde-medinah /bin/bash`
 
@@ -15,5 +15,7 @@ To be able to run specs in the container you need to populate or update the inju
 e.g. `bundle exec rspec spec/controllers/heartbeat_controller_spec.rb`
 
 - Comment out the line in the file `spec/rails_helper.rb` again.
+
+- This command can also populate the DB (to be run inside container): `DATABASE_URL_TEST=mysql2://root:password@db/injury_profiler_test bundle exec rake db:setup`
 
 - Check sequelPro and see that the injury_profiler_test schema is updated. Proceed to run your tests.
