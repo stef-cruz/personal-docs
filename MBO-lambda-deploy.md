@@ -1,21 +1,21 @@
 # MBO lambda deploy
 
-Once you merge your code from the kitman-lambda repo to master, it will create a new version of the build. 
+Once you merge your code from the `kitman-lambda` repo to master, it will create a new version of the build. 
 
-The new version can be seen on CircleCI > search for you PR and click on rubuy lambdas. 
+The new version number can be seen on CircleCI > navigate to kitman-lambda > search for you PR > click on Ruby lambdas and expand the dropdown that starts with `cd mindbody-integration`.
 
+<img width="1613" alt="Screenshot 2022-12-07 at 09 47 17" src="https://user-images.githubusercontent.com/109154890/206145395-113f4741-e914-4f72-9c0d-cf3e6101fd7b.png">
 
-![Screenshot 2022-12-06 at 16 06 19](https://user-images.githubusercontent.com/109154890/205983801-1ab2bd50-6bcb-4975-8049-6cc4f6a4d211.png)
+Once you have the versions, the next step is to update it in [`elon` repo](https://github.com/KitmanLabs/elon) for the staging, sandbox and production environments so it will deploy a new build with the version that contains your changes. Note: each region has a different version so make sure to update the `eu-west-1` version in the `eu-west-1` directory. 
 
-Get the version corresponding to the region (eu-west-1 code has to be used to update the eu-west-1 instances staging, production and sandbox).
+![Screenshot 2022-12-06 at 16 07 53](https://user-images.githubusercontent.com/109154890/206143936-9947b6ea-a254-4294-ae52-a3e99d43ab06.png)
 
-Now we need to update the version in `elon` so it deploys the correct version.
+In `elon` repo, update the version for the corresponding region in all instances production, staging and sanbdox. `global/organizations/${INSTANCE}/${REGION}/api_gateway/integrations/terragrunt.hcl`.   
+INSTANCE = production, staging or sandbox.   
+REGION = eu-west-1, us-east-1, etc.
 
-Navigate to the directory dev/elon, cd into the folder where you updated the version in the file in the instance SANDBOX only, see if the version can be updated with the command kitman tg apply
+Before creating the PR, cd into the SANDBOX directory and run the command `kitman tg apply --local` and check the output to make sure that only your changes have been updated in this instance. Once that is done create the PR, [see an example here](https://github.com/KitmanLabs/elon/pull/2136).
 
-create elon PR
-The elon PRs need to be a bit more elaborated, go to the directories where the changes will be applied and run the code Kitman tg plan —local —pr (local because still not merged to master).
+The Elon PR requires the output of the planned changes applied to both production and staging. Navigate to the directory  `global/organizations/${INSTANCE}/${REGION}/api_gateway/integrations` and run the command `kitman tg plan —-local —pr`. The tag `--local` is there because the PR hasn't been merged to master yet. Paste the output in the PR for production & staging.
 
-once the PR is merged then you can apply 
-go to production directory and run command <kitman tg apply>
-this pull the latest master in the container. Then go and add a comment with the result of this code in the PR. Look at old PRs to see the format. 
+After the PR is reviewed and merged you can apply the changes. Navigate to the directory mentioned above and run command `kitman tg apply` which will pull the latest master branch in the container. Paste the output as a comment in the PR for prod and staging. Follow the format of [this PR](https://github.com/KitmanLabs/elon/pull/2136).
