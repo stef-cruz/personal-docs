@@ -1,6 +1,10 @@
 # MBO lambda deploy
 
-This documentation has been deployed [here](https://github.com/KitmanLabs/kitman-lambda/tree/master/mindbody_integration)
+This documentation has been posted [in the MBO lambda repo](https://github.com/KitmanLabs/kitman-lambda/tree/master/mindbody_integration)
+
+
+
+
 
 Once you merge your code from the `kitman-lambda` repo to master, it will create a new version of the build. 
 
