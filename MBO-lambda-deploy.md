@@ -1,12 +1,14 @@
 # MBO lambda deploy
 
+This documentation has been deployed (here)[https://github.com/KitmanLabs/kitman-lambda/tree/master/mindbody_integration]
+
 Once you merge your code from the `kitman-lambda` repo to master, it will create a new version of the build. 
 
 The new version number can be seen on CircleCI > navigate to kitman-lambda > search for you PR > click on Ruby lambdas and expand the dropdown that starts with `cd mindbody-integration`.
 
 <img width="1613" alt="Screenshot 2022-12-07 at 09 47 17" src="https://user-images.githubusercontent.com/109154890/206145395-113f4741-e914-4f72-9c0d-cf3e6101fd7b.png">
 
-Once you have the versions, the next step is to update it in [`elon` repo](https://github.com/KitmanLabs/elon) for the staging, sandbox and production environments so it will deploy a new build with the version that contains your changes. Note: each region has a different version so make sure to update the `eu-west-1` version in the `eu-west-1` directory. 
+The next step is to update the new versions in [`elon` repo](https://github.com/KitmanLabs/elon) for the staging, sandbox and production environments so it will deploy a new build with the version that contains your changes. Note: each region has a different version so make sure to update the `eu-west-1` version in the `eu-west-1` directory. 
 
 ![Screenshot 2022-12-06 at 16 07 53](https://user-images.githubusercontent.com/109154890/206143936-9947b6ea-a254-4294-ae52-a3e99d43ab06.png)
 
