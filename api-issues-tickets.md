@@ -7,14 +7,12 @@ The goal with this type of ticket is to try to replicate the issue locally.
 #### Test locally
 
 1. Get the API credentials. It can be in the AWS console but as I don't think I have access to it I ask around. Gustavo is a good source of knowledge. 
-2. Set the creds in the environment variables in Fenway container
+2. Set the creds in the rbenv.vars in Fenway
 
 e.g. 
-FIRSTBEAT_SHARED_SECRET=xxx.  
-FIRSTBEAT_API_KEY=xxx.  
-FIRSTBEAT_CONSUMER_ID=xxx.  
-
-then run `printenv` to see if the creds are there.
+FIRSTBEAT_SHARED_SECRET="xxx"  
+FIRSTBEAT_API_KEY="xxx"  
+FIRSTBEAT_CONSUMER_ID="xxx"  
 
 3. In console local, create the integration with the org that the user is seeing the error. You might need to ask PS (Platform Success) team to give 
 you access to the org or this info might be in the ticket.
