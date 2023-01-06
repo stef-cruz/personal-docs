@@ -19,7 +19,7 @@ you access to the org or this info might be in the ticket.
 
 Example for Firstbeat: it needs the account_id and the team_id, and this info was in the ticket.
 
-4. In IP, try to call the API and check the fenway console for errors.
+4. Dates are very important. Try to replicate the error calling the API on the dates that the user is seeing the error. Look for error messages in fenway console and also try to replicate in the rails console within fenway container, instantiating the client and calling the API with the same date range provided by the user.
 
 ### Other ideas:
 
